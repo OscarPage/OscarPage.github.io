@@ -1,0 +1,50 @@
+---
+---
+<!DOCTYPE html>
+	<head>
+		<title>{% if page.title %}{{ page.title }} - {% endif %}Oscar Page Edits</title>
+		<meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description}}{% endif %}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+		</script>
+	</head>
+	<body>
+		<div class="main-wrapper">
+		{{ content }}
+		</div>
+		<script
+		  async
+		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
+		></script>
+		<script>
+	/* Generate the youtube iframe if the user clicks the image. */
+document.addEventListener("DOMContentLoaded", function(event){
+	const youtubes = Array.from(document.getElementsByClassName("youtube"));
+	youtubes.forEach(function(item){
+		const img = item.firstElementChild;
+		img.addEventListener("click", (function(dotyoutube){
+			return function(e){
+				e.preventDefault();
+				const iframe = document.createElement("iframe");
+				iframe.setAttribute("allow","autoplay");
+				iframe.src = img.getAttribute("data-iframesrc");
+				dotyoutube.replaceChild(iframe, img);
+				dotyoutube.classList.remove("thumbnail");
+			};
+		}(item)));
+	});
+});
+</script>
+	</body>
+</html>

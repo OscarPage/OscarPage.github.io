@@ -1,0 +1,49 @@
+---
+layout: default
+---
+<nav>
+    <ul>
+    	<li><a href="/">Oscar Page Edits</a></li>
+        <li><a href="/trailers/">Trailers</a></li>
+        <li><a href="/events/">Events</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+    </ul>
+</nav>
+
+{% include youtube.html v=page.video_id enablejsapi=true %}
+
+<style>
+.youtube img{
+      width: 320px;
+}
+.youtube.thumbnail:before {
+        --triangle-width: 12px;
+        content: "";
+        position: absolute;
+        left: calc(50% - 0.9 * var(--triangle-width));
+        top: calc(50% - var(--triangle-width));
+        width: 0;
+        height: 0;
+        border-top: var(--triangle-width) solid transparent;
+        border-left: calc(var(--triangle-width) * 2) solid white;
+        border-bottom: var(--triangle-width) solid transparent;
+        pointer-events: none;
+      }
+
+      /* Circle Shape */
+.youtube.thumbnail:after {
+        --circle-diameter: 60px;
+        --circle-thickness: 4px;
+        content: "";
+        position: absolute;
+        left: calc(50% - 0.5 * var(--circle-diameter));
+        top: calc(50% - 0.5 * var(--circle-diameter));
+        width: var(--circle-diameter);
+        height: var(--circle-diameter);
+        border: var(--circle-thickness) solid white;
+        border-radius: 50%;
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+</style>
