@@ -1,6 +1,7 @@
 ---
 ---
 <!DOCTYPE html>
+<html{% if page.pageclass %} class="{{ page.pageclass }}"{% endif %}>
 	<head>
 		<title>{% if page.title %}{{ page.title }} - {% endif %}Oscar Page Edits</title>
 		<meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description}}{% endif %}" />
@@ -9,6 +10,8 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Saira+Semi+Condensed&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/assets/css/stylesheet.css?v={{ site.time | date: '%Y%m%d%H%M%S' }}" />
 
 		<script>
 		window.lazyLoadOptions = {
@@ -24,31 +27,45 @@
 		</script>
 	</head>
 	<body>
-		<div class="main-wrapper">
-		{{ content }}
+		<div id="title-container">
+		    <h1><a href="/">Oscar Page Edits</a></h1>
+		    <h2>Video editor with a background in events promotion</h2>
+		    <a class="contact-me" >Contact Me</a>
 		</div>
-		<script
-		  async
-		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
-		></script>
+		<div id="rest-container">
+			<nav>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/events/">Events</a></li>
+					<li><a href="/trailers/">Trailers</a></li>
+					<li><a href="/mentions/">Mentions</a></li>
+					<li><a href="/about/">About</a></li>
+					<li><a href="/contact/">Contact</a></li>
+				</ul>
+			</nav>
+			<div id="main-container">
+				{{ content }}
+	    	</div>
+		</div>
+		<script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script>
 		<script>
-	/* Generate the youtube iframe if the user clicks the image. */
-document.addEventListener("DOMContentLoaded", function(event){
-	const youtubes = Array.from(document.getElementsByClassName("youtube"));
-	youtubes.forEach(function(item){
-		const img = item.firstElementChild;
-		img.addEventListener("click", (function(dotyoutube){
-			return function(e){
-				e.preventDefault();
-				const iframe = document.createElement("iframe");
-				iframe.setAttribute("allow","autoplay");
-				iframe.src = img.getAttribute("data-iframesrc");
-				dotyoutube.replaceChild(iframe, img);
-				dotyoutube.classList.remove("thumbnail");
-			};
-		}(item)));
-	});
-});
-</script>
+			/* Generate the youtube iframe if the user clicks the image. */
+		document.addEventListener("DOMContentLoaded", function(event){
+			const youtubes = Array.from(document.getElementsByClassName("youtube"));
+			youtubes.forEach(function(item){
+				const img = item.firstElementChild;
+				img.addEventListener("click", (function(dotyoutube){
+					return function(e){
+						e.preventDefault();
+						const iframe = document.createElement("iframe");
+						iframe.setAttribute("allow","autoplay");
+						iframe.src = img.getAttribute("data-iframesrc");
+						dotyoutube.replaceChild(iframe, img);
+						dotyoutube.classList.remove("thumbnail");
+					};
+				}(item)));
+			});
+		});
+		</script>
 	</body>
 </html>

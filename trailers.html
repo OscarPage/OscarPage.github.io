@@ -2,18 +2,30 @@
 layout: default
 title: Trailers
 ---
-<nav>
-    <ul>
-        <li><a href="/">Oscar Page Edits</a></li>
-        <li><a href="/events/">Events</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/contact/">Contact</a></li>
-    </ul>
-</nav>
 <div>
-    <ul>
-    {% for trailer in site.trailers %}
-        <li><a href="{{ trailer.url }}"><img src="{{ trailer.image }}" width="640" height="480"></a></li>
-    {% endfor %}
-    </ul>
+{% for trailer in site.trailers reversed %}
+    <div class="trailer">
+        <a href="{{ trailer.url }}">
+            <div class="youtube">
+                <div class="youtube-thumbnail lazy"
+                {%- unless trailer.image -%}
+                    {%- unless trailer.usealt -%}
+                        data-bg="http://i.ytimg.com/vi/{{ trailer.video_id }}/maxresdefault.jpg"
+                    {%- else -%}
+                        data-bg="http://i.ytimg.com/vi/{{ trailer.video_id }}/hqdefault.jpg"
+                    {%- endunless -%}
+                {%- else -%}
+                    data-bg="/assets/images/{{ trailer.image }}"
+                {%- endunless -%}
+                 data-iframesrc="https://www.youtube.com/embed/{{ videoid }}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1"
+                ></div>
+                <span class="trailer-type">{{ trailer.type }}</span>
+            </div>
+            <h1>{{ trailer.title }}</h1>
+            {% if trailer.mention %}
+                <p>{{ trailer.mention }}</p>
+            {% endif %}
+        </a>
+    </div>
+{% endfor %}
 </div>

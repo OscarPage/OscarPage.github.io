@@ -1,7 +1,0 @@
----
-title: halflife_alyx_2
-date: 2022-05-17 12:11:55 +0100
-image: /assets/images/halflife_alyx_2.jpeg
-video_id: Qi74UagYgWk
----
-Sample text if you want it.
