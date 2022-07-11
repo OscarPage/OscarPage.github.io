@@ -244,21 +244,23 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
+.videobox-container {
 
-.trailer .youtube {
+}
+.videobox .youtube {
     width: 250px;
 }
-.trailer .youtube-thumbnail {
+.videobox .youtube-thumbnail {
     padding-top: var(--aspect-ratio);
     height: 0px;
     position: relative;
     background-position: center;
     background-size: cover;
 }
-.trailer a {
+.videobox a {
     color: var(--blue);
 }
-.trailer .youtube .trailer-type {
+.videobox .youtube .videobox-type {
     position: absolute;
     right: 3px;
     bottom: 0px;
