@@ -214,11 +214,11 @@ nav ul li a:hover {
 }
 /* Triangle Shape */
 .youtube:before {
-    --triangle-width: 18px;
-    content: "▶";
+    --triangle-width: 35px;
+    content: "▸";
     position: absolute;
-    left: calc(0.4 * var(--triangle-width));
-    bottom: calc(0.1 * var(--triangle-width));
+    left: calc(0.25 * var(--triangle-width));
+    bottom:  calc(-0.25 * var(--triangle-width));
     font-size: var(--triangle-width);
     pointer-events: none;
     z-index: 1;
@@ -274,5 +274,6 @@ nav ul li a:hover {
 
 }
 .videobox .youtube:before {
-    --triangle-width: 45px;
+    --triangle-width: 65px;
+    bottom: 0;
 }
