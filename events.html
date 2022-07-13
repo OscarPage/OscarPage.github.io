@@ -2,8 +2,30 @@
 layout: default
 title: Events
 ---
-<ul>
-{% for trailer in site.events %}
-    <li><a href="{{ trailer.url }}"><img src="{{ trailer.image }}" width="640" height="480"></a></li>
+<div class="videobox-container">
+{% for event in site.events reversed %}
+    <div class="videobox">
+        <a href="{{ event.url }}">
+            <div class="youtube">
+                <div class="youtube-thumbnail lazy"
+                {%- unless event.image -%}
+                    {%- unless event.usealt -%}
+                        data-bg="http://i.ytimg.com/vi/{{ event.video_id }}/maxresdefault.jpg"
+                    {%- else -%}
+                        data-bg="http://i.ytimg.com/vi/{{ event.video_id }}/hqdefault.jpg"
+                    {%- endunless -%}
+                {%- else -%}
+                    data-bg="/assets/images/{{ event.image }}"
+                {%- endunless -%}
+                 data-iframesrc="https://www.youtube.com/embed/{{ videoid }}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1"
+                ></div>
+                <span class="videobox-type">{{ event.type }}</span>
+            </div>
+            <h1>{{ event.title }}</h1>
+            {% if event.mention %}
+                <p>{{ event.mention }}</p>
+            {% endif %}
+        </a>
+    </div>
 {% endfor %}
-</ul>
+</div>
