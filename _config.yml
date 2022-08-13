@@ -36,18 +36,23 @@ collections:
     output: true
   events:
     output: true
+  other:
+    output: true
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: trailers
     values:
       layout: video
-  -
-    scope:
+  - scope:
       path: ""
       type: events
+    values:
+      layout: video
+  - scope:
+      path: ""
+      type: other
     values:
       layout: video
 

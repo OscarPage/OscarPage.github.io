@@ -9,8 +9,7 @@
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Saira+Semi+Condensed&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Saira+Semi+Condensed&family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="/assets/css/stylesheet.css?v={{ site.time | date: '%Y%m%d%H%M%S' }}" />
 
 		<script>
@@ -33,12 +32,12 @@
 		    <a class="contact-me" >Contact Me</a>
 		</div>
 		<div id="rest-container">
-			<nav>
+			<nav id="main-nav">
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/events/">Events</a></li>
 					<li><a href="/trailers/">Trailers</a></li>
-					<li><a href="/mentions/">Mentions</a></li>
+					<li><a href="/other/">Other</a></li>
 					<li><a href="/about/">About</a></li>
 					<li><a href="/contact/">Contact</a></li>
 				</ul>
@@ -66,6 +65,30 @@
 				}(item)));
 			});
 		});
+		</script>
+		<script>
+		function fixedElements(){
+			var header = document.getElementById("title-container");
+			var rest = document.getElementById("rest-container");
+			rest.style.top = (header.offsetHeight) + "px";
+
+			var nav = document.querySelector("#rest-container nav");
+			var content = document.getElementById("main-container");
+			content.style.left = (nav.offsetWidth) + "px";
+			content.style.width = (rest.offsetWidth - nav.offsetWidth) + "px";
+		}
+		window.addEventListener('load', fixedElements);
+		window.addEventListener('resize', fixedElements);
+		var img = document.querySelector('#header img');
+
+		fixedElements();
+		document.fonts.ready.then(function () {
+			fixedElements();
+		});
+		</script>
+		<script>
+			/* Email protector script. I used http://rumkin.com/tools/mailto-encoder/ */
+			//oscarpageedits@gmail.com
 		</script>
 	</body>
 </html>

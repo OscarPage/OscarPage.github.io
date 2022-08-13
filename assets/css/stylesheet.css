@@ -97,7 +97,6 @@ html:not(.homepage) {
 nav {
     position:  fixed;
     display: inline-block;
-    width: 250px;
     top: 69px;
     height: calc(100vh - 69px);
     background: rgb(27,44,60);
@@ -118,10 +117,10 @@ nav ul:after {
 nav ul {
     list-style-type: none;
     height: 100%;
-    padding: 20px 40px;
+    padding: 20px 55px;
 }
 nav ul li {
-    margin: 35px 15px;
+    margin: 35px 0;
     position: relative;
     display: block;
 }
@@ -143,6 +142,8 @@ nav ul li a:hover {
     height: auto;
     min-height: calc(100vh - 69px);
     left: 250px;
+    padding-right: 55px; /* Same horizontal padding as the Nav element. */
+    box-sizing: border-box;
 }
 .empty-panel {
     position: relative;
