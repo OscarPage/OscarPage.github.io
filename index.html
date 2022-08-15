@@ -80,4 +80,22 @@ player = new YT.Player('player', {
 function onPlayerReady(event) {
 player.playVideo();
 }
+
+/* Generate the youtube iframe if the user clicks the image. */
+document.addEventListener("DOMContentLoaded", function(event){
+    const youtubes = Array.from(document.getElementsByClassName("youtube"));
+    youtubes.forEach(function(item){
+        const img = item.firstElementChild;
+        img.addEventListener("click", (function(dotyoutube){
+            return function(e){
+                e.preventDefault();
+                const iframe = document.createElement("iframe");
+                iframe.setAttribute("allow","autoplay");
+                iframe.src = img.getAttribute("data-iframesrc");
+                dotyoutube.replaceChild(iframe, img);
+                dotyoutube.classList.remove("thumbnail");
+            };
+        }(item)));
+    });
+});
 </script>

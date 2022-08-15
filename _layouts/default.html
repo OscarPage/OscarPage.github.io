@@ -26,6 +26,7 @@
 		</script>
 	</head>
 	<body>
+		<div id="overlay"></div>
 		<div id="title-container">
 		    <h1><a href="/">Oscar Page Edits</a></h1>
 		    <h2>Video editor with a background in events promotion</h2>
@@ -47,25 +48,6 @@
 	    	</div>
 		</div>
 		<script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script>
-		<script>
-			/* Generate the youtube iframe if the user clicks the image. */
-		document.addEventListener("DOMContentLoaded", function(event){
-			const youtubes = Array.from(document.getElementsByClassName("youtube"));
-			youtubes.forEach(function(item){
-				const img = item.firstElementChild;
-				img.addEventListener("click", (function(dotyoutube){
-					return function(e){
-						e.preventDefault();
-						const iframe = document.createElement("iframe");
-						iframe.setAttribute("allow","autoplay");
-						iframe.src = img.getAttribute("data-iframesrc");
-						dotyoutube.replaceChild(iframe, img);
-						dotyoutube.classList.remove("thumbnail");
-					};
-				}(item)));
-			});
-		});
-		</script>
 		<script>
 		function fixedElements(){
 			var header = document.getElementById("title-container");
