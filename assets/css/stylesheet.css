@@ -1,3 +1,4 @@
+/* Variables */
 :root {
     --blue: #1b2c3c;
     --bluergb: 27,44,60;
@@ -10,15 +11,18 @@
     --fonttwo: 'Saira Semi Condensed', sans-serif;
     --aspect-ratio: calc(100% * (1080/1920));
 }
+
+/* Sensible defaults */
 html, body {
     margin: 0px;
     padding: 0px;
     border: 0px;
 }
-html.homepage {
-    overflow: hidden;
+iframe {
+    border: none;
 }
 
+/* Site-specific defaults */
 a {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     color: var(--white);
@@ -28,10 +32,47 @@ a:hover {
     color: var(--orange);
 }
 
+/* Reusables */
+.hidden {
+    display: none;
+}
+
+/* Specific Pages - Homepage */
+html.homepage {
+    overflow: hidden;
+}
+
+
+
+
 #overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background:rgba(0,0,0,0.95);
+    z-index: 100000000000;
+}
+.aspect-ratio-width-wrapper {
+    position: relative;
+    height: 0px;
+    max-width: 1200px;
+    max-height: 75%;
+    margin: auto;
+}
+.aspect-ratio-height-wrapper {
+    padding-top: 60%;
+}
+.aspect-ratio-wrapper {
+    position: relative;
+    padding-bottom: var(--aspect-ratio);
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+.video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: black;
 }
 
 
@@ -244,7 +285,6 @@ nav ul li a:hover {
     filter: saturate(100%);
 }
 .youtube iframe {
-    border: none;
     width: 320px;
     height: 180px;
     border-radius: 5px;
@@ -257,6 +297,8 @@ nav ul li a:hover {
     row-gap: 30px;
     grid-auto-flow: dense;
     margin: 20px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: var(--white);
 }
 .videobox .youtube-thumbnail {
     padding-top: var(--aspect-ratio);

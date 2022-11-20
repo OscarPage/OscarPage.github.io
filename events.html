@@ -8,15 +8,15 @@ title: Events
         <div class="youtube">
             <div class="youtube-thumbnail lazy"
             {%- unless event.image -%}
-                {%- if event.usealt -%}
+                {%- unless event.usealt -%}
                     data-bg="http://i.ytimg.com/vi/{{ event.video_id }}/maxresdefault.jpg"
                 {%- else -%}
                     data-bg="http://i.ytimg.com/vi/{{ event.video_id }}/hqdefault.jpg"
-                {%- endif -%}
+                {%- endunless -%}
             {%- else -%}
                 data-bg="/assets/images/{{ event.image }}"
             {%- endunless -%}
-                data-iframesrc="https://www.youtube.com/embed/{{ videoid }}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1"
+                data-iframesrc="https://www.youtube.com/embed/{{ event.video_id }}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1"
             ></div>
             <span class="videobox-type">{{ event.type }}</span>
         </div>

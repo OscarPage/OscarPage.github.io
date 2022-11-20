@@ -1,5 +1,11 @@
 <script>
+const removeChildren = function(elem){
+    while (elem.lastChild) {
+        elem.removeChild(elem.lastChild);
+    }
+}
 /* Generate a black screened overlay and play the video when a thumbnail is clicked. */
+const overlay = document.getElementById("overlay");
 document.addEventListener("DOMContentLoaded", function(event){
     const youtubes = Array.from(document.getElementsByClassName("youtube"));
     youtubes.forEach(function(item){
@@ -7,14 +13,28 @@ document.addEventListener("DOMContentLoaded", function(event){
         img.addEventListener("click", (function(dotyoutube){
             return function(e){
                 e.preventDefault();
+
                 const iframe = document.createElement("iframe");
                 iframe.setAttribute("allow","autoplay");
                 iframe.src = img.getAttribute("data-iframesrc");
-                const overlay = document.getElementById("overlay");
-                overlay.appendChild(iframe);
+                //iframe.classList.add("video-iframe");
+
+                const wrapper = document.createElement("div");
+                wrapper.classList.add("aspect-ratio-width-wrapper");
+                wrapper.appendChild(iframe);
+
+                overlay.appendChild(wrapper);
                 overlay.classList.remove("hidden");
+
+                iframe.style.width = wrapper.clientWidth + "px";
+                iframe.style.height = wrapper.clientWidth * (1080/1920) + "px";
             };
         }(item)));
     });
+});
+/* Allow the screen to be clicked away */
+overlay.addEventListener("click", function(event) {
+    overlay.classList.add("hidden");
+    removeChildren(overlay);
 });
 </script>

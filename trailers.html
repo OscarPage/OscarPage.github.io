@@ -8,11 +8,11 @@ title: Trailers
         <div class="youtube">
             <div class="youtube-thumbnail lazy"
             {%- unless trailer.image -%}
-                {%- if trailer.usealt -%}
+                {%- unless trailer.usealt -%}
                     data-bg="http://i.ytimg.com/vi/{{ trailer.video_id }}/maxresdefault.jpg"
                 {%- else -%}
                     data-bg="http://i.ytimg.com/vi/{{ trailer.video_id }}/hqdefault.jpg"
-                {%- endif -%}
+                {%- endunless -%}
             {%- else -%}
                 data-bg="/assets/images/{{ trailer.image }}"
             {%- endunless -%}
