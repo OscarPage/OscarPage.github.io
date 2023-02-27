@@ -10,6 +10,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Saira+Semi+Condensed&family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
+		<link href="/assets/fonts/Claris_Sans.woff" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="/assets/css/stylesheet.css?v={{ site.time | date: '%Y%m%d%H%M%S' }}" />
 
 		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
@@ -33,7 +34,7 @@
 	<body>
 		<div id="overlay" class="hidden"></div>
 		<div id="title-container">
-		    <h1><a href="/">Oscar Page Edits</a></h1>
+		    <a href="/"><img src="/assets/OPE-resized.png"></a>
 		    <h2>Video editor with a background in events promotion</h2>
 		    <a class="contact-me" >Contact Me</a>
 		</div>
@@ -63,6 +64,13 @@
 			var content = document.getElementById("main-container");
 			content.style.left = (nav.offsetWidth) + "px";
 			content.style.width = (rest.offsetWidth - nav.offsetWidth) + "px";
+			content.style.height = "calc(100vh - " + (header.offsetHeight) + "px)";
+
+			var mentions = document.getElementsByClassName("mentions-panel");
+			if(mentions){
+				mentions[0].style.paddingRight = (nav.offsetWidth) + "px";
+			}
+
 		}
 		window.addEventListener('load', fixedElements);
 		window.addEventListener('resize', fixedElements);

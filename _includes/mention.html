@@ -1,0 +1,20 @@
+{%- assign videoid = include.v -%}
+{%- assign text = include.text -%}
+<div class="mention">
+    <div class="mention-thumbnail-wrapper">
+        <div class="lazy mention-thumbnail"
+        {%- unless include.image -%}
+            {%- unless include.usealt -%}
+                data-bg="http://i.ytimg.com/vi/{{ videoid }}/maxresdefault.jpg"
+            {%- else -%}
+                data-bg="http://i.ytimg.com/vi/{{ videoid }}/hqdefault.jpg"
+            {%- endunless -%}
+        {%- else -%}
+            data-bg="/assets/images/{{ include.image }}"
+        {%- endunless -%}
+        ></div>
+    </div>
+    <div>
+    	<p class="mention-text">{{ text }}</p>
+    </div>
+</div>

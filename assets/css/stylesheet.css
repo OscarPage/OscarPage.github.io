@@ -1,3 +1,9 @@
+/* Extra Fonts */
+@font-face {
+  font-family: "ClarisSans";
+  src: url("/assets/fonts/Claris_Sans.woff") format('woff');
+}
+
 /* Variables */
 :root {
     --blue: #1b2c3c;
@@ -7,7 +13,7 @@
     --yellow: #fbd009;
     --yellowrgb: 251,208,9;
     --white:  white;
-    --fontone: 'Righteous', cursive;
+    --fontone: 'ClarisSans', sans-serif;
     --fonttwo: 'Saira Semi Condensed', sans-serif;
     --aspect-ratio: calc(100% * (1080/1920));
 }
@@ -24,7 +30,7 @@ iframe {
 
 /* Site-specific defaults */
 a {
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: var(--fonttwo);
     color: var(--white);
     text-decoration: none;
 }
@@ -84,7 +90,38 @@ html.homepage {
     width: 100%;
     z-index: 10;
 }
-#title-container h1,
+#title-container a:nth-child(1) {
+    position: absolute;
+}
+#title-container img {
+    height: 88px;
+}
+#title-container a:nth-child(1):before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: green;
+    display: block;
+    top: 0px;
+    left: 0px;
+    background: var(--blue);
+    z-index: -1;
+    border-bottom: 5px solid var(--white);
+}
+#title-container a:nth-child(1):after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: green;
+    display: block;
+    top: 0px;
+    left: 0px;
+    background: var(--blue);
+    z-index: -1;
+    border-bottom: 5px solid var(--white);
+}
 #title-container h2 {
     display: inline-block;
     margin: 0px;
@@ -100,9 +137,6 @@ html.homepage {
     flex-shrink: 0;
     height: 1em;
 }
-#title-container h1 a {
-    font-family: var(--fontone);
-}
 #title-container h2 {
     font-size: 20px;
     font-family: var(--fonttwo);
@@ -114,12 +148,12 @@ html.homepage {
 }
 #title-container a.contact-me {
     background: var(--orange);
-    border-bottom: 8px solid var(--yellow);
-    color: var(--blue);
+    border-bottom: 5px solid var(--yellow);
+    color: var(--white);
     font-family: var(--fonttwo);
-    font-size: 26px;
-    font-weight: 200;
-    padding: 10px 24px;
+    font-size: 21px;
+    font-weight: bolder;
+    padding: 4px 24px;
     text-align: center;
     flex-shrink: 0;
 }
@@ -172,13 +206,14 @@ nav ul li {
     display: block;
 }
 nav ul li a {
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: var(--fontone);
     position:  relative;
     color: var(--white);
     text-decoration: none;
     font-size:  32px;
     z-index: 2;
     letter-spacing: 3px;
+    font-weight: bold;
 }
 nav ul li a:hover {
     color: var(--orange);
@@ -223,6 +258,8 @@ nav ul li a:hover {
     display: flex;
     position: absolute;
     bottom: 0px;
+    width: 100%;
+    box-sizing: border-box;
 }
 .mentions-panel * {
     font-family: var(--fonttwo);
@@ -251,15 +288,25 @@ nav ul li a:hover {
 .mention {
     display: inline-block;
     flex: 1;
+    padding: 0px 15px;
 }
-.mention div {
-    display: inline-block;
-    width: 49%;
-    height: ;
+.mention-thumbnail {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    object-fit: cover;
+    filter:  saturate(50%);
 }
-.youtube {
-    position: relative;
+.mention-thumbnail:hover {
+    filter: saturate(100%);
 }
+.mention-text {
+    line-height: 1;
+    margin: 0.5em 0;
+    text-align: center;
+}
+
 /* Triangle Shape */
 .youtube:before {
     --triangle-width: 35px;
@@ -273,34 +320,19 @@ nav ul li a:hover {
     text-shadow: 0 0 10px var(--blue);
 }
 
-.youtube img {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 5px;
-    object-fit: cover;
-    filter:  saturate(50%);
-}
-.youtube img:hover {
-    filter: saturate(100%);
-}
-.youtube iframe {
-    width: 320px;
-    height: 180px;
-    border-radius: 5px;
-}
-
 .videobox-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 10px;
+    column-gap: 30px;
     row-gap: 30px;
     grid-auto-flow: dense;
     margin: 20px;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin-top: 60px;
+    font-family: var(--fonttwo);
     color: var(--white);
 }
-.videobox .youtube-thumbnail {
+.videobox .youtube-thumbnail,
+.mention-thumbnail {
     padding-top: var(--aspect-ratio);
     height: 0px;
     position: relative;

@@ -3,27 +3,9 @@ layout: default
 pageclass: homepage
 ---
 <div class="mentions-panel">
-    <div class="mention">
-        {% include youtube.html v="ONMpwpUdbt8" enablejsapi=true %}
-        <div>
-            <p>Featured & shared by Croteam</p>
-            <a>Read More</a>
-        </div>
-    </div>
-    <div class="mention">
-        {% include youtube.html v="xjTph0xBC1A" enablejsapi=true %}
-        <div>
-            <p>Creator of Bionicle shares praise for retrospective</p>
-            <a>Read More</a>
-        </div>
-    </div>
-    <div class="mention">
-        {% include youtube.html v="4K4C6cXFVUQ" enablejsapi=true %}
-        <div>
-            <p>Winner of /r/FanTrailers contest judged by Derek Lieu</p>
-            <a>Read More</a>
-        </div>
-    </div>
+    {% include mention.html v="ONMpwpUdbt8" text="Featured & shared by Croteam" enablejsapi=true %}
+    {% include mention.html v="xjTph0xBC1A" text="Creator of Bionicle shares praise for retrospective" enablejsapi=true %}
+    {% include mention.html v="4K4C6cXFVUQ" text="Winner of /r/FanTrailers contest judged by Derek Lieu" enablejsapi=true %}
 </div>
 <iframe id="player" src="https://www.youtube.com/embed/Hht_EkMZABE?mute=1&modestbranding=1&controls=0&autohide=1&showinfo=0&rel=0&wmode=opaque&enablejsapi=1"></iframe>
 <script>
