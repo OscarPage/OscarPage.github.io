@@ -3,87 +3,9 @@
 <!DOCTYPE html>
 <html{% if page.pageclass %} class="{{ page.pageclass }}"{% endif %}>
 	<head>
-		<title>{% if page.title %}{{ page.title }} - {% endif %}Oscar Page Edits</title>
-		<meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description}}{% endif %}" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Saira+Semi+Condensed&family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
-		<link href="/assets/fonts/Claris_Sans.woff" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="/assets/css/stylesheet.css?v={{ site.time | date: '%Y%m%d%H%M%S' }}" />
-
-		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-		<link rel="manifest" href="/assets/favicon/site.webmanifest">
-
-		<script>
-		window.lazyLoadOptions = {
-			threshold: 250
-		};
-		window.addEventListener(
-			"LazyLoad::Initialized",
-			function (event) {
-				window.lazyLoadInstance = event.detail.instance;
-			},
-			false
-		);
-		</script>
+		<meta http-equiv="refresh" content="0; url='https://www.youtube.com/@OscarPageEdits/videos'" />
 	</head>
 	<body>
-		<div id="overlay" class="hidden"></div>
-		<div id="title-container">
-		    <a href="/"><img src="/assets/OPE-resized.png"></a>
-		    <h2>Video editor with a background in events promotion</h2>
-		    <a class="contact-me" >Contact Me</a>
-		</div>
-		<div id="rest-container">
-			<nav id="main-nav">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/events/">Events</a></li>
-					<li><a href="/trailers/">Trailers</a></li>
-					<li><a href="/other/">Other</a></li>
-					<li><a href="/about/">About</a></li>
-					<li><a href="/contact/">Contact</a></li>
-				</ul>
-			</nav>
-			<div id="main-container">
-				{{ content }}
-	    	</div>
-		</div>
-		<script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script>
-		<script>
-		function fixedElements(){
-			var header = document.getElementById("title-container");
-			var rest = document.getElementById("rest-container");
-			rest.style.top = (header.offsetHeight) + "px";
-
-			var nav = document.querySelector("#rest-container nav");
-			var content = document.getElementById("main-container");
-			content.style.left = (nav.offsetWidth) + "px";
-			content.style.width = (rest.offsetWidth - nav.offsetWidth) + "px";
-			content.style.height = "calc(100vh - " + (header.offsetHeight) + "px)";
-
-			var mentions = document.getElementsByClassName("mentions-panel");
-			if(mentions){
-				mentions[0].style.paddingRight = (nav.offsetWidth) + "px";
-			}
-
-		}
-		window.addEventListener('load', fixedElements);
-		window.addEventListener('resize', fixedElements);
-		var img = document.querySelector('#header img');
-
-		fixedElements();
-		document.fonts.ready.then(function () {
-			fixedElements();
-		});
-		</script>
-		<script>
-			/* Email protector script. I used http://rumkin.com/tools/mailto-encoder/ */
-			//oscarpageedits@gmail.com
-		</script>
+		<p>Click <a href="https://www.youtube.com/@OscarPageEdits/videos">here</a> if you are not redirected.</p>
 	</body>
 </html>
